@@ -1,0 +1,16 @@
+## Team
+Peter Repetto, Kebbin Eke, Shereef El-Prince,  Nicole Goldin
+
+## Project
+Fundamental/Technical Analsysis and Financial News have always been drivers and indicators of Future Stock Performance. Factors such as Stock Prices, Daily Volume Traded, and Put/Call Ratios can provide insight into trends and patterns, however this type of analysis does not account for changes in investor sentiment. By incorporating the use of Social Media and Money Manager Sentiment into a trading algorithm, short term investors have access to more accurate performance signals. 
+
+The Pura Vida Index, PV Index, is a tool which sends signals/alerts for short term trading opportunities driven by technical indicators and sentiment analysis. The tool offers the user recommendations with an accuracy score for their stock as well as a Dashboard of graphs for historical performance, volume analysis, and trigger point models. Using a Classification Random Forest, the PV Index factors in Stock Price, Volume trends, Put/Call Ratios, News/Social Media Sentiment, and Money Manager Sentiment to create trading signals. 
+
+## User Instructions
+Open 'Team 6 Project 2.ipynb' and input user stock ticker in the 'user_input' variable. This file will allow the user to pull in the necessary data, create the signals, generate the random forest, and output the accuracy score of the results. After this is complete, open 'Team_6_Project_Shereef.ipynb'. After inputting the stock ticker under 'user_input', the user will be able to run the code to generate the Dashboard for more data and graphs related to the signal recommendation. 
+
+## Information on Signal Creation
+The Signals on the Share Price data are created using Bollinger Bands with a standard deviation of 2. This signals a buy signal when the price jumps below 2 STD and a sell signal when it jumps above 2 STD. The Signals for Volume are created by comparing the Exponential Weighted Moving Average to the Minimum and Maximum Volumes for the past 60 days. When the EWMA falls below the minimum, a buy signal is generated, and when the EWMA jumps above the maximum, a sell signal is generated. The trading signal for the Options Put to Call Ratio is generated using Percentile Bands of 95/5. When the ratio is above/below the bands, a buy/sell signal is generated. The News Sentiment Signals are generated using Vader Sentiment Analysis. When the sentiment score is positive a buy signal is generated, and when the sentiment is negative a sell signal is generated. The Money Manager Sentiment Signal is generated using Percentile Bands of 90/10 on the Sentiment Scores from AAII. 
+
+## Next Steps
+The PV Index could be improved in a variety of ways. In order to make the Index more user friendly, it could be inputed into a Lex Bot. Utilizing a Lex Bot would also allow for more user customization of the risk threshold for the signals. Additionally, due to the short term nature of the Index, integrating Stop/Loss signals would enhance peformance and mitigate losses. With access to more Social Media data, the PV Index could also run as a Neural Network rather than a Classification Random Forest. This would provide a higher accuracy score, however this was not possible with the current available data sources. The PV Index could also be altered to assits in both short term and long term trading strategies.
